@@ -2,6 +2,7 @@
   "expo": {
     "name": "rn-swapi",
     "slug": "rn-swapi",
+    "scheme": "rn-swapi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +23,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
