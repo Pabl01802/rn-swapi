@@ -9,7 +9,7 @@ export const Loading = () => (
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height / 1.5,
     justifyContent: 'center'
   }
 })

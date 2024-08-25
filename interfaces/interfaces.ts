@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface IMovie {
   characters: string[],
   created: string,
@@ -22,4 +24,10 @@ export interface IMoviesListProps {
 export interface IMovieTileProps {
   film: IMovie,
   id: number
+}
+
+export interface ISearchBarProps {
+  setMovies: Dispatch<SetStateAction<IMovie[] | null>>,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  setError: Dispatch<SetStateAction<string>>
 }

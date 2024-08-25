@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { IMoviesListProps, IMovie } from '../interfaces/interfaces'
 import { MovieTile } from './MovieTile'
 
-export default function MoviesList({ films }:IMoviesListProps) {
+const MoviesList = ({ films }:IMoviesListProps) => {
 
   const [data] = useState<IMovie[]>(films)
 
@@ -21,3 +21,5 @@ export default function MoviesList({ films }:IMoviesListProps) {
     </View>
   )
 }
+
+export default MoviesList

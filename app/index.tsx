@@ -1,16 +1,17 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { url } from '../utils/url'
+import { url } from '../utils/utils'
 import axios from 'axios'
 import { IMovie } from '../interfaces/interfaces'
 import MovieList from '../components/MoviesList'
 import { Loading } from '../components/common/Loading'
+import { SearchBar } from '../components/SearchBar'
 
 export default function Home() {
 
   const [data, setData] = useState<IMovie[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
     const getData = async () => {
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <View>
+      <SearchBar setMovies={setData} setLoading={setLoading} setError={setError} />
       {
         error ? <Text>{error}</Text> : loading ? <Loading /> : <MovieList films={data!} />
       }

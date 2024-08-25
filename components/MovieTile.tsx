@@ -2,6 +2,7 @@ import { View, Text, StyleSheet  } from 'react-native'
 import { Link } from 'expo-router'
 import React from 'react'
 import { IMovieTileProps } from '../interfaces/interfaces'
+import { colors } from '../utils/utils'
  
 export const MovieTile = ({ film, id }:IMovieTileProps) => (
   <View style={styles.movieTileContainer}>
@@ -18,10 +19,10 @@ const styles = StyleSheet.create({
     gap: 5
   },
   link: {
-    backgroundColor: '#A02334',
+    backgroundColor: colors.primary,
     width: 100,
     padding: 4,
-    color: '#fff',
+    color: colors.secondary,
     textAlign: 'center'
   },
   titleText: {
