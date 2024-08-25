@@ -5,6 +5,9 @@ const RootLayout = () => (
     <Stack.Screen name='index' options={{
       headerTitle: 'SWAPI Home',
     }} />
+    <Stack.Screen name='movies/[id]' options={{
+      headerTitle: 'Movie info',
+    }} />
   </Stack>
 )
 

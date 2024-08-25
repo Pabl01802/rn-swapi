@@ -7,7 +7,7 @@ import { colors } from '../utils/utils'
 export const MovieTile = ({ film, id }:IMovieTileProps) => (
   <View style={styles.movieTileContainer}>
     <Text style={styles.titleText}>{film.title}</Text>
-    <Link href={`/movies/${id}`} style={styles.link}>
+    <Link href={`/movies/${id+1}`} style={styles.link}>
       Check out
     </Link>
   </View>

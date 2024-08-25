@@ -31,3 +31,7 @@ export interface ISearchBarProps {
   setLoading: Dispatch<SetStateAction<boolean>>,
   setError: Dispatch<SetStateAction<string>>
 }
+
+export interface IMovieInfoProps {
+  movie: IMovie
+}
