@@ -29,9 +29,14 @@ export interface IMovieTileProps {
 export interface ISearchBarProps {
   setMovies: Dispatch<SetStateAction<IMovie[] | null>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  setError: Dispatch<SetStateAction<string>>
+  setError: Dispatch<SetStateAction<string>>,
+  error: string
 }
 
 export interface IMovieInfoProps {
   movie: IMovie
+}
+
+export interface IErrorProps {
+  text: string
 }

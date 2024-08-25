@@ -5,7 +5,7 @@ import { ISearchBarProps } from '../interfaces/interfaces'
 import axios from 'axios'
 import { url, colors } from '../utils/utils'
 
-export const SearchBar = ({ setMovies, setLoading, setError }:ISearchBarProps) => {
+export const SearchBar = ({ setMovies, setLoading, setError, error }:ISearchBarProps) => {
 
   const [searchValue, setSearchValue] = useState<string>('')
   const search = useDebounce(searchValue)
@@ -18,9 +18,17 @@ export const SearchBar = ({ setMovies, setLoading, setError }:ISearchBarProps) =
   useEffect(() => {
     if(wasRendered.current){
       setLoading(true)
+      if(error) setError('')
       const getData = async () => {
         try{
           const res = await axios.get(`${url}?search=${search}`)
+
+          if(res.data.results.length === 0){
+            setLoading(false)
+            setError('No movies has been found.')
+            return
+          }
+
           setMovies(res.data.results)
           setLoading(false)
         }catch(err){

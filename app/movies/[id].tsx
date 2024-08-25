@@ -5,7 +5,8 @@ import { Loading } from '../../components/common/Loading'
 import { IMovie } from "../../interfaces/interfaces"
 import axios from 'axios'
 import { url } from '../../utils/utils'
-import MovieInfo from '../../components/MovieInfo'
+import { MovieInfo } from "../../components/MovieInfo"
+import { Error } from '../../components/common/Error'
 
 const MovieInfoPage = () => {
 
@@ -19,11 +20,11 @@ const MovieInfoPage = () => {
     const getData = async () => {
       try{
         const res = await axios.get(`${url}/${id}`)
+
         setData(res.data)
         setLoading(false)
       }catch(err){
-        console.log(err)
-        setError('An error occured')
+        setError('Movie not found.')
       }
     }
 
@@ -33,7 +34,7 @@ const MovieInfoPage = () => {
   return(
     <View>
       {
-        error ? error : loading ? <Loading /> : <MovieInfo movie={data!} />
+        error ? <Error text={error} /> : loading ? <Loading /> : <MovieInfo movie={data!} />
       }
     </View>
   )  

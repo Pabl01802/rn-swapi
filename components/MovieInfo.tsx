@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { IMovieInfoProps } from '../interfaces/interfaces'
 
-const MovieInfo = ({ movie }:IMovieInfoProps) => {
+export const MovieInfo = ({ movie }:IMovieInfoProps) => {
 
   return (
     <View style={styles.infoContainer}>
@@ -27,5 +27,3 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 })
-
-export default MovieInfo
