@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   link: {
     backgroundColor: colors.primary,
-    width: 100,
+    width: 120,
     padding: 4,
     color: colors.secondary,
     textAlign: 'center'

@@ -40,3 +40,13 @@ export interface IMovieInfoProps {
 export interface IErrorProps {
   text: string
 }
+
+export interface IWatchLaterProps{
+  id: string,
+  remove?: boolean,
+  onPress?: () => void
+}
+
+export interface ILocalMovie {
+  id: string
+}
