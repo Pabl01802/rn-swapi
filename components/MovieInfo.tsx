@@ -4,13 +4,15 @@ import { IMovieInfoProps } from '../interfaces/interfaces'
 import { WatchLater } from '../components/WatchLater'
 import { useLocalSearchParams } from 'expo-router'
 import { StarsRating } from '../components/StarsRating'
-
+import { ToastContainer } from '../components/common/ToastContainer'
+ 
 export const MovieInfo = ({ movie }:IMovieInfoProps) => {
 
   const { id } = useLocalSearchParams()
 
   return (
     <View style={styles.infoContainer}>
+      <ToastContainer />
       <Text style={styles.movieTitle}>{movie.title}</Text>
       <Text style={styles.openingCrawl}>{movie.opening_crawl}</Text>
       <WatchLater id={id as string} />
@@ -22,7 +24,7 @@ export const MovieInfo = ({ movie }:IMovieInfoProps) => {
 const styles = StyleSheet.create({
   infoContainer: {
     padding: 10,
-    gap: 10
+    gap: 10,
   },
   movieTitle: {
     fontSize: 30,

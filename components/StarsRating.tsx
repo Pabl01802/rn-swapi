@@ -3,10 +3,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import Stars from 'react-native-stars'
 import { IStarsRatingProps, IMovieRatingLocal } from '../interfaces/interfaces'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Error } from './common/Error'
 
 export const StarsRating = ({ id }:IStarsRatingProps) => {
 
   const [rating, setRating] = useState<number>(0)
+  const [defaultRating, setDefaultRating] = useState<number | null>(null)
   const [error, setError] = useState<string>('')
 
   const starsRef = useRef<React.JSX.Element | null>(null)
@@ -26,8 +28,8 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
 
         if(!found) return
 
-        if(found.rating > starsRef.current?.props.count) setRating(starsRef.current?.props.count)
-        else setRating(found.rating)
+        if(found.rating > starsRef.current?.props.count) setDefaultRating(starsRef.current?.props.count)
+        else setDefaultRating(found.rating)
       }catch(err){
         setError('Error while loading movie rating.')
       }
@@ -38,6 +40,7 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
 
   useEffect(() => {
     const saveRating = async () => {
+      console.log('ws')
       try{
         const ratingList = await AsyncStorage.getItem('starsRating')
 
@@ -67,14 +70,20 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
 
   return (
     <View>
-      <Stars 
-        update={(val:number) => handleStarsRating(val)}
-        count={10}
-        default={rating !== 0 ? rating : 0}
-        ref={starsRef}
-      />
       {
-        rating !== 0 && <Text style={{ textAlign: 'center' }}>Your rating: {rating} out of {starsRef.current?.props.count}</Text>
+        error ? <Error text={error} /> : (
+          <View>
+            <Stars 
+              update={(val:number) => handleStarsRating(val)}
+              count={10}
+              default={defaultRating || 0}
+              ref={starsRef}
+            />
+            {
+              rating !== 0 && <Text style={{ textAlign: 'center' }}>Your rating: {rating} out of {starsRef.current?.props.count}</Text>
+            }  
+        </View>
+        )
       }
     </View>
   )

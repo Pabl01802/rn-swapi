@@ -9,6 +9,8 @@ import axios from 'axios'
 import { url } from '../../utils/utils'
 import { WatchLater } from '../../components/WatchLater'
 import { useRouter } from 'expo-router'
+import { ToastContainer } from '../../components/common/ToastContainer'
+import { Toast } from 'toastify-react-native'
 
 export default function WatchList() {
 
@@ -71,8 +73,8 @@ export default function WatchList() {
       let list = await AsyncStorage.getItem('watchLaterList')
       const parsed = JSON.parse(list!)
       await AsyncStorage.setItem('watchLaterList', JSON.stringify(parsed.filter((movie:ILocalMovie) =>  movie.id !== id)))
-      alert('Movie removed')
       router.replace('/watchList')
+      Toast.success('Movie removed')
     }catch(err){
       setError('Error while removing movie')
     }
@@ -90,6 +92,7 @@ export default function WatchList() {
 
   return (
     <View>
+      <ToastContainer />
       {
         error ? <Error text={error} /> : loading ? <Loading /> : list
       }

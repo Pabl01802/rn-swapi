@@ -1,8 +1,9 @@
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { colors } from '../utils/utils'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ILocalMovie, IWatchLaterProps } from '../interfaces/interfaces'
+import { Toast } from 'toastify-react-native'
 
 export const WatchLater = ({ id, remove, onPress }:IWatchLaterProps) => {
 
@@ -17,21 +18,24 @@ export const WatchLater = ({ id, remove, onPress }:IWatchLaterProps) => {
           const found = parsed.find(( movie:ILocalMovie ) => movie.id === id)
 
           if(!found) await AsyncStorage.setItem('watchLaterList', JSON.stringify([...parsed, { id }]))
-          else return alert('Movie already in list')
+          else return Toast.warn('Movie already in list', 'bottom')
+
+          Toast.success('Movie added to the list', 'bottom')
         }
       }
 
-      alert('Movie added to the list')
     }catch(err){
       console.log(err)
-      alert('Error while adding to watch list')
+      Toast.error('Error while adding to watch list', 'top')
     }
   }
 
   return(
-    <TouchableOpacity style={styles.watchLaterTouchable} onPress={onPress || handleWatchLaterList}>
-      <Text style={styles.watchLaterText}>{remove ? 'Remove from list' : 'Watch Later'}</Text>
-    </TouchableOpacity>
+    <View>
+        <TouchableOpacity style={styles.watchLaterTouchable} onPress={onPress || handleWatchLaterList}>
+        <Text style={styles.watchLaterText}>{remove ? 'Remove from list' : 'Watch Later'}</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 const styles = StyleSheet.create({
