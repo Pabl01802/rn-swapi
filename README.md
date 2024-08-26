@@ -1,11 +1,11 @@
-# RN - SWAPI
+# 📱RN - SWAPI📱
 
 `rn-swapi` is a mobile app that allows you to browse star wars movies from Star Wars API.
 
 This app uses SWAPI. Check out its documentation for more details:
 [LINK TO SWAPI DOCUMENTATION](https://swapi.dev/documentation)
 
-## Technologies
+## ⚡Technologies⚡
 
 - **React Native** (for creating mobile app)
 - **TypeScript**: (for static typing and better code readability)
@@ -14,7 +14,7 @@ This app uses SWAPI. Check out its documentation for more details:
 - **Async Storage**: (for storing data locally)
 - **React Native Stars**: (to allow user to rate movie using Stars component)
 
-## Features
+## 💎Features💎 
 
 - **Browsing Star Wars movies**: App allows you to browse Star Wars mowvies from SWAPI. 
   It also has search bar so you can search for movie you want.
@@ -24,7 +24,7 @@ This app uses SWAPI. Check out its documentation for more details:
   !!! DISCLAIMER !!! once you rated movie you cannot delete its rating (I did it intentionally) but you can 
   change its rating for lower or higher
 
-## Installation
+## 🔗Installation🔗
 
 To install app locally on your PC do these steps:
 
@@ -45,7 +45,7 @@ To install app locally on your PC do these steps:
     npx expo start
     ```
 
-## Project structure
+## 📄Project structure📄
 
 - **/app**: Main folder with app pages and layout
 - **/components**: Reusable UI components
@@ -54,5 +54,5 @@ To install app locally on your PC do these steps:
 - **/hooks**: My custom hooks
 - **/utils**: Utility file where URL and colors are stored
 
-## If you have any suggestions on what I can change, add or remove just contact me via email: kacper.pawlak25@gmail.com
-### Thanks for reading and enjoy my app. Cheers! :)
+## If you have any suggestions on what I can change, add or remove just contact me via email: kacper.pawlak25@gmail.com📧
+### Thanks for reading and enjoy my app. Cheers! :)🎉 
