@@ -50,3 +50,12 @@ export interface IWatchLaterProps{
 export interface ILocalMovie {
   id: string
 }
+
+export interface IStarsRatingProps {
+  id: string
+}
+
+export interface IMovieRatingLocal {
+  id: string,
+  rating: number
+}

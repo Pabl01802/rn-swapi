@@ -3,6 +3,7 @@ import React from 'react'
 import { IMovieInfoProps } from '../interfaces/interfaces'
 import { WatchLater } from '../components/WatchLater'
 import { useLocalSearchParams } from 'expo-router'
+import { StarsRating } from '../components/StarsRating'
 
 export const MovieInfo = ({ movie }:IMovieInfoProps) => {
 
@@ -13,6 +14,7 @@ export const MovieInfo = ({ movie }:IMovieInfoProps) => {
       <Text style={styles.movieTitle}>{movie.title}</Text>
       <Text style={styles.openingCrawl}>{movie.opening_crawl}</Text>
       <WatchLater id={id as string} />
+      <StarsRating id={id as string} />
     </View>
   )
 }

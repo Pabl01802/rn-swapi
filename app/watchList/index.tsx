@@ -29,6 +29,7 @@ export default function WatchList() {
         if(parsed.length === 0){
           setError('No movies saved')
           setLoading(false)
+          return
         } 
 
         setLocal(JSON.parse(list!))
