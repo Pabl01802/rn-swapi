@@ -25,7 +25,6 @@ export const WatchLater = ({ id, remove, onPress }:IWatchLaterProps) => {
       }
 
     }catch(err){
-      console.log(err)
       Toast.error('Error while adding to watch list', 'bottom')
     }
   }

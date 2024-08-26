@@ -32,7 +32,6 @@ export const SearchBar = ({ setMovies, setLoading, setError, error }:ISearchBarP
           setMovies(res.data.results)
           setLoading(false)
         }catch(err){
-          console.log(err)
           setError('An error occured')
         }
       }

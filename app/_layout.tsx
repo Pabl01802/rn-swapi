@@ -2,13 +2,13 @@ import { Stack, Link } from "expo-router"
 import { colors } from "../utils/utils"
 
 const RootLayout = () => (
-  <Stack screenOptions={{
+  <Stack screenOptions={({route}) => ({
     headerRight: () => (
-      <Link style={{ backgroundColor: colors.primary, padding: 5, color: colors.secondary }} href='/watchList'>
-        Watch List
+      <Link style={{ backgroundColor: colors.primary, padding: 5, color: colors.secondary }} href={route.name !== 'watchList/index' ? '/watchList' : '/'}>
+        {route.name !== 'watchList/index' ? 'Watch List' : 'Home'}
       </Link>
-    )
-  }}>
+    ),
+  })}>
     <Stack.Screen name='index' options={{
       headerTitle: 'SWAPI Home',
     }} />

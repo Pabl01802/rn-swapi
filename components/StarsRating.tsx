@@ -40,7 +40,6 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
 
   useEffect(() => {
     const saveRating = async () => {
-      console.log('ws')
       try{
         const ratingList = await AsyncStorage.getItem('starsRating')
 
