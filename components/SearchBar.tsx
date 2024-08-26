@@ -25,7 +25,7 @@ export const SearchBar = ({ setMovies, setLoading, setError, error }:ISearchBarP
 
           if(res.data.results.length === 0){
             setLoading(false)
-            setError('No movies has been found.')
+            setError('No movies have been found.')
             return
           }
 
