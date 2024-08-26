@@ -1,4 +1,4 @@
-import { View, Text } from "react-native"
+import { View } from "react-native"
 import { useLocalSearchParams } from "expo-router"
 import { useState, useEffect } from 'react'
 import { Loading } from '../../components/common/Loading'
@@ -18,6 +18,7 @@ const MovieInfoPage = () => {
 
   useEffect(() => {
     const getData = async () => {
+      if(!loading) setLoading(true)
       try{
         const res = await axios.get(`${url}/${id}`)
 
