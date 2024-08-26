@@ -48,7 +48,8 @@ export default function WatchList() {
     if(local){
       const getMovies = async () => {
         try{
-          const res = await Promise.all([...local.map((movie:ILocalMovie) => axios.get(`${url}/${movie.id}`))])
+          const res = await Promise.all([...local.map((movie:ILocalMovie) => axios.get(`${url}/${movie.id}`)
+          )])
         
           if(res.length === local.length){
             setMovies(res.map((movie) => movie.data))
@@ -83,7 +84,7 @@ export default function WatchList() {
 
   const list = movies?.map((movie, index) => (
     <View key={`movie-${index}`}>
-      <MovieTile film={movie} id={parseInt(local![index].id)} />
+      <MovieTile film={movie} id={parseInt(local![index].id)-1} />
       <View style={styles.removeMovie}>
         <WatchLater onPress={() => removeMovie(local![index].id)} id={local![index].id} remove={true} />
       </View>
