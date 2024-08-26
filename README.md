@@ -54,5 +54,5 @@ To install app locally on your PC do these steps:
 - **/hooks**: My custom hooks
 - **/utils**: Utility file where URL and colors are stored
 
-## If you have any suggestions on what I can change, add or remove just contanct me via email: kacper.pawlak25@gmail.com
+## If you have any suggestions on what I can change, add or remove just contact me via email: kacper.pawlak25@gmail.com
 ### Thanks for reading and enjoy my app. Cheers! :)
