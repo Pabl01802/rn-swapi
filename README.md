@@ -16,7 +16,7 @@ This app uses SWAPI. Check out its documentation for more details:
 
 ## 💎Features💎 
 
-- **Browsing Star Wars movies**: App allows you to browse Star Wars mowvies from SWAPI. 
+- **Browsing Star Wars movies**: App allows you to browse Star Wars movies from SWAPI. 
   It also has search bar so you can search for movie you want.
 - **Movie information**: Each movie has its subpage where you can see opening crawl from it.
 - **Watch later list**: You can save movies to the "Watch later list" so you can see what movies you saved.
