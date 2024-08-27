@@ -39,7 +39,7 @@ export default function WatchList() {
         setError('Error while loading watch list')
       }
     }
-    
+
     getStorageData()
   }, [])
 
