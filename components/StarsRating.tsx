@@ -8,7 +8,7 @@ import { Error } from './common/Error'
 export const StarsRating = ({ id }:IStarsRatingProps) => {
 
   const [rating, setRating] = useState<number>(0)
-  const [defaultRating, setDefaultRating] = useState<number | null>(null)
+  const [defaultRating, setDefaultRating] = useState<number>(0)
   const [error, setError] = useState<string>('')
 
   const starsRef = useRef<React.JSX.Element | null>(null)
@@ -55,7 +55,7 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
         if(!found) await AsyncStorage.setItem('starsRating', JSON.stringify([...parsed, { id, rating }]))
         else{
           const index = parsed.indexOf(found)
-          parsed[index].rating = rating
+          parsed[index].rating = rating !== 0 ? rating : found.rating
 
           await AsyncStorage.setItem('starsRating', JSON.stringify(parsed))
         }
@@ -75,11 +75,11 @@ export const StarsRating = ({ id }:IStarsRatingProps) => {
             <Stars 
               update={(val:number) => handleStarsRating(val)}
               count={10}
-              default={defaultRating || 0}
+              default={defaultRating}
               ref={starsRef}
             />
             {
-              rating !== 0 && <Text style={{ textAlign: 'center' }}>Your rating: {rating} out of {starsRef.current?.props.count}</Text>
+              (defaultRating !== 0 || rating !== 0) && <Text style={{ textAlign: 'center' }}>Your rating: {rating || defaultRating} out of {starsRef.current?.props.count}</Text>
             }  
         </View>
         )
