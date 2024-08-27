@@ -37,7 +37,9 @@ export default function Home() {
 
   return (
     <View>
-      <SearchBar setMovies={setData} setLoading={setLoading} setError={setError} error={error} />
+      <View style={{ alignItems: 'center' }}>
+        <SearchBar setMovies={setData} setLoading={setLoading} setError={setError} error={error} />
+      </View>
       {
         error ? <Error text={error} /> : loading ? <Loading /> : <MoviesList films={data!} />
       }

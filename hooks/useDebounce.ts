@@ -5,7 +5,7 @@ export const useDebounce = (text: string, delay = 500) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setValue(text)
+      setValue(text.trim())
     }, delay)
 
     return () => clearTimeout(timeout)
